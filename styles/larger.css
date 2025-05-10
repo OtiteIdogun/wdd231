@@ -378,6 +378,7 @@ dialog::backdrop {
     color: var(--secondary-color);
     margin-top: 0;
     padding-right: 2rem; 
+    line-height: 1.5;
 }
 
 #courseDetails h3 {
