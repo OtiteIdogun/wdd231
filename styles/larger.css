@@ -138,12 +138,12 @@ nav a.active {
     z-index: 1001;
 }
 
-.nav-toggle-btn::before {
+.nav-toggle-btn .open::before {
     content: "☰"; 
     display: block; 
 }
 
-.nav-toggle-btn.open::before {
+.nav-toggle-btn.close::before {
     content: "✖";
 }
 

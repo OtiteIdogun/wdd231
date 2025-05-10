@@ -3,12 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.querySelector('.nav-toggle-btn');
     const navMenu = document.querySelector('nav');
     
-    toggleBtn.textContent = "";
-    
     // Toggle mobile menu
     toggleBtn.addEventListener('click', function() {
+        // toggleBtn.textContent = "";
         navMenu.classList.toggle('active');
-        toggleBtn.classList.toggle('open');
+        // toggleBtn.classList.toggle('close');
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
     
