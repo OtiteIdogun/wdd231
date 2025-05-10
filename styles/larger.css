@@ -52,6 +52,10 @@ header {
     clear: both;
 }
 
+h1 {
+    font-size: 1.8em;
+}
+
 header div {
     display: flex;
     flex-wrap: wrap;
@@ -306,7 +310,6 @@ section .title {
     background: var(--black);
 }
 
-/* Add this to your CSS file */
 .completed {
     background-color: var(--accent4-color); 
     color: var(--white);
@@ -328,7 +331,6 @@ section .title {
     gap: 10px;
 }
 
-/* Enhanced Modal styles */
 dialog {
     width: 90%;
     max-width: 600px;
@@ -374,7 +376,7 @@ dialog::backdrop {
 #courseDetails h2 {
     color: var(--secondary-color);
     margin-top: 0;
-    padding-right: 2rem; /* Space for close button */
+    padding-right: 2rem; 
 }
 
 #courseDetails h3 {
