@@ -297,7 +297,7 @@ section .title {
     font-size: 20px;
     text-align: center;
     font-weight: 800;
-    justify-self: space-evenly;
+    justify-content: space-evenly;
 }
 
 .cert-cards div:hover {
@@ -374,19 +374,16 @@ dialog::backdrop {
     color: var(--secondary-color);
     margin-top: 0;
     padding-right: 2rem; /* Space for close button */
-    word-break: break-word;
 }
 
 #courseDetails h3 {
     color: var(--primary);
     margin-bottom: 1rem;
-    word-break: break-word;
 }
 
 #courseDetails p {
     margin-bottom: 0.8rem;
     line-height: 1.5;
-    word-break: break-word;
 }
 
 #courseDetails strong {
