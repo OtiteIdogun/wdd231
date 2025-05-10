@@ -54,21 +54,22 @@ header {
 
 h1 {
     font-size: 1.8em;
+    text-align: center;
 }
 
-header div {
+.header-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-header img {
+.header-content img {
     border-radius: 12%;
     margin: 1rem 3rem;
     align-self: center;
 }
 
-header span {
+.header-content span {
     font-family: "Poppins", Arial, sans-serif;
     padding: 0;
     margin: 0.5rem 0 1rem;
@@ -78,7 +79,7 @@ header span {
     text-align: center;
 }
 
-header .two {
+.short-name {
     display: none;
 }
 
@@ -121,7 +122,7 @@ nav a.active {
 }
 
 /* Navigation Toggle Button */
-.nav-toggleBtn {
+.nav-toggle-btn {
     display: none;
     background: var(--secondary-color);
     width: 50px;
@@ -137,12 +138,12 @@ nav a.active {
     z-index: 1001;
 }
 
-.nav-toggleBtn::before {
+.nav-toggle-btn::before {
     content: "☰"; 
     display: block; 
 }
 
-.nav-toggleBtn.open::before {
+.nav-toggle-btn.open::before {
     content: "✖";
 }
 
@@ -155,37 +156,37 @@ section {
     margin: 0rem auto 0rem;
 }
 
-#one {
+.content-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
     margin: 0rem auto 2rem;
 }
 
-.course {
+.course-work-section {
     flex: 3 0 250px;
 }
 
-.country {
+.location-info-section {
     flex: 1 0 250px;
 }
 
-.course,
-.country,
-.certificate {
+.course-work-section,
+.location-info-section,
+.certificate-section {
     border: 1px solid #CCC;
     border-radius: 1rem;
     background: var(--white);
 }
 
-.course .content,
-.country .content,
-.certificate .content {
+.course-work-section .content,
+.location-info-section .content,
+.certificate-section .content {
     padding: 0.5rem 0.5rem;
     margin: 0;
 }
 
-.course .content {
+.course-work-section .content {
     height: 30rem;
     overflow: auto;
 }
@@ -226,40 +227,40 @@ section {
     background: var(--accent4-color);
 }
 
-.country .content {
+.location-info-section .content {
     margin: 1rem 1rem 0;
     text-align: center;
 }
 
-.country p {
+.location-info-section p {
     text-align: left;
 }
 
-.country img {
+.location-info-section img {
     width: 100%;
     height: auto;
     align-self: center;
 }
 
-.country h3 {
+.location-info-section h3 {
     text-align: center;
 }
 
-section .title {
+.section-header {
     padding: 1px 2rem;
     background: var(--secondary-color);
     border-radius: 1rem 1rem 0 0rem;
 }
 
-.certificate .content div,
-.cert-nav {
+.certificate-section .content div,
+.certificate-section .filter-controls {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
 }
 
-.cert-nav button {
+.certificate-section .filter-btn {
     display: inline-block;
     padding: 0.4rem 1.8rem;
     margin: 1rem 0.5rem 0;
@@ -274,12 +275,12 @@ section .title {
     transition: background 0.3s, color 0.3s;
 }
 
-.cert-nav button:hover {
+.certificate-section .filter-btn:hover {
     background: var(--white);
     color: var(--black);
 }
 
-.total-credits {
+.credit-total {
     justify-self: center;
     padding: 0.4rem 2rem;
     background: var(--white);
@@ -287,14 +288,14 @@ section .title {
     margin: 0rem 0 1.5rem 0;
 }
 
-.cert-cards, course-item {
+.certificate-cards, course-item {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 2fr));
     gap: 15px;
     margin: 1rem 1rem;
 }
 
-.cert-cards div {
+.certificate-cards div {
     display: inline-block;
     padding: 1.5rem 5rem;
     border-radius: 8px;
@@ -305,7 +306,7 @@ section .title {
     justify-content: space-evenly;
 }
 
-.cert-cards div:hover {
+.certificate-cards div:hover {
     transform: scale(1.0);
     background: var(--black);
 }
@@ -433,7 +434,7 @@ footer {
     place-content: center;
 }
 
-footer div p:first-child {
+footer .footer-content p:first-child {
     font-weight: bold;
 }
 

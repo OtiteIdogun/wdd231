@@ -64,11 +64,11 @@ const courses = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const certCardsContainer = document.querySelector('.cert-cards');
+    const certCardsContainer = document.querySelector('.certificate-cards');
     const allCoursesButton = document.getElementById('all-courses');
     const wddCoursesButton = document.getElementById('wdd-courses');
     const cseCoursesButton = document.getElementById('cse-courses');
-    const totalCreditsDisplay = document.querySelector('.total-credits');
+    const totalCreditsDisplay = document.querySelector('.credit-total');
     const courseDetailsModal = document.getElementById('courseDetails');
 
     // Function to render courses

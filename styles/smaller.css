@@ -7,7 +7,6 @@
         position: sticky;
         top: 0;
         box-shadow: 00px 0px 4px rgba(0, 0, 0, 1);
-
     }
     
     /* Header scroll behavior */
@@ -21,8 +20,8 @@
         }
     }
     
-    header img,
-    header span {
+    .header-content img,
+    .header-content span {
         margin: 0;
     }
     
@@ -64,32 +63,33 @@
         border-left: 4px solid var(--accent6-color);
     }
 
-    .nav-toggleBtn {
+    .nav-toggle-btn {
         display: flex;
         place-self: center;
         text-align: center;
         border-radius: 8px;
     }
 
-    .nav-toggleBtn:hover {
+    .nav-toggle-btn:hover {
         background: rgba(0,0,0,0.245);
         padding: 10px;
         margin: 0;
     }
 
-    header div {
+    .header-content {
         flex-direction: row; 
         justify-content: space-around;
         margin: 0.6rem;
         height: 4.5em;
     }
 
-    header img {
+    .header-content img {
         margin: 0.4rem 0; 
         width: 60px;
+        height: auto;
     }
 
-    header span {
+    .header-content span {
         display: inline-block;
         font-size: 1.8em;
     }
@@ -99,7 +99,7 @@
         width: 95%;
     }
     
-    section .title {
+    section .section-header {
         padding: 1px 2rem;
         background: var(--secondary-color);
         border-radius: 1rem 1rem 0 0rem;
@@ -125,14 +125,14 @@
 }
 
 @media (max-width: 540px) {
-    header .two {
+    .header-content span {
+        display: none;
+    }
+    
+    .header-content .short-name {
         display: inline-block;
         font-size: 1.4rem; 
         margin: 0 0 0 1rem;
-    }
-    
-    header span {
-        display: none;
     }
 
     dialog {
@@ -157,7 +157,7 @@
 }
 
 @media (max-width: 400px) {
-    .cert-nav button {
+    .certificate-section .filter-btn {
         padding: 0.4rem 1rem;
         margin: 1rem 0.3rem 0;
         font-size: 0.9rem;
