@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Otite Philemon Idogun's WDD 231 - Web Frontend Development portfolio showcasing course projects and skills.">
+    <meta name="author" content="Otite Philemon Idogun">
+    <title>WDD 231 Portfolio | Otite Idogun</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Light Theme */
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --text-color: #2d3748;
+            --accent-color: #4361ee;
+            --accent-hover: #3a56d4;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-color: #e2e8f0;
+            --completed: #4ade80;
+            --uncompleted: #f87171;
+            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            
+            /* Dark Theme */
+            --dark-primary-bg: #1a202c;
+            --dark-secondary-bg: #2d3748;
+            --dark-text-color: #f8f9fa;
+            --dark-accent-color: #60a5fa;
+            --dark-accent-hover: #3b82f6;
+            --dark-card-bg: #2d3748;
+            --dark-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --dark-border-color: #4a5568;
+            --dark-completed: #34d399;
+            --dark-uncompleted: #f87171;
+            --dark-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+        }
+
+        [data-theme="dark"] {
+            --primary-bg: var(--dark-primary-bg);
+            --secondary-bg: var(--dark-secondary-bg);
+            --text-color: var(--dark-text-color);
+            --accent-color: var(--dark-accent-color);
+            --accent-hover: var(--dark-accent-hover);
+            --card-bg: var(--dark-card-bg);
+            --card-shadow: var(--dark-card-shadow);
+            --border-color: var(--dark-border-color);
+            --completed: var(--dark-completed);
+            --uncompleted: var(--dark-uncompleted);
+            --gradient: var(--dark-gradient);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: white;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            font-weight: 600;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--card-shadow);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Course Cards */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card.completed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--completed);
+        }
+
+        .course-card.uncompleted::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--uncompleted);
+        }
+
+        .course-code {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .course-credits {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .course-status {
+            font-weight: 600;
+        }
+
+        .course-status.completed {
+            color: var(--completed);
+        }
+
+        .course-status.uncompleted {
+            color: var(--uncompleted);
+        }
+
+        /* Total Credits */
+        .total-credits {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            height: 100%;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Modal */
+        dialog {
+            width: 90%;
+            max-width: 600px;
+            border: none;
+            border-radius: 12px;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h2 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-meta span {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .modal-meta .status {
+            background-color: var(--completed);
+            color: white;
+        }
+
+        .modal-meta .status.uncompleted {
+            background-color: var(--uncompleted);
+        }
+
+        .modal-meta .credits {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .modal-content p {
+            margin-bottom: 1rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            background-color: var(--secondary-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e2e8f0;
+            transform: translateY(-2px);
+        }
+
+        .footer-country {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-country img {
+            width: 30px;
+            border-radius: 4px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 1rem;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .filter-buttons {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .filter-btn {
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            dialog {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .course-card {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .course-card:nth-child(1) { animation-delay: 0.1s; }
+        .course-card:nth-child(2) { animation-delay: 0.2s; }
+        .course-card:nth-child(3) { animation-delay: 0.3s; }
+        .course-card:nth-child(4) { animation-delay: 0.4s; }
+        .course-card:nth-child(5) { animation-delay: 0.5s; }
+        .course-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="profile">
+                <img src="images/profile.jpg" alt="Otite Philemon Idogun">
+                <h1>Otite Idogun</h1>
+            </div>
+            
+            <nav id="mainNav">
+                <a href="index.html" class="active">Home</a>
+                <a href="chamber" target="_blank">Chamber</a>
+                <a href="https://github.com/" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="project-final" target="_blank">Project</a>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Web Frontend Development Portfolio</h2>
+            <p>Showcasing my projects and progress through the WDD 231 course at BYU-Idaho</p>
+        </section>
+
+        <section class="about">
+            <div class="about-container">
+                <div class="about-text">
+                    <h3>About Abuja, Nigeria</h3>
+                    <p>Abuja, city, capital of Nigeria. It lies in the central part of Nigeria, in the Federal Capital Territory (FCT; created 1976). The city is approximately 300 miles (480 km) northeast of Lagos, the former capital (until 1991).</p>
+                    <p>Abuja's geography is defined by Aso Rock, a 400-meter monolith left by water erosion. The Presidential Complex, National Assembly, Supreme Court and much of the city extend to the south of the rock.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/abuja-landscape.jpg" alt="Abuja, Nigeria">
+                </div>
+            </div>
+        </section>
+
+        <section class="courses">
+            <div class="section-header">
+                <h2>Web & Computer Programming Certificate</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" id="all-courses">All</button>
+                    <button class="filter-btn" id="wdd-courses">WDD</button>
+                    <button class="filter-btn" id="cse-courses">CSE</button>
+                </div>
+            </div>
+            
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Course cards will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="total-credits">
+                Total Completed Credits: <span id="totalCredits">0</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="chamber" target="_blank">Chamber</a>
+                <a href="https://github.com/" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="project-final" target="_blank">Project</a>
+            </div>
+            <div class="footer-country">
+                <img src="images/flag-of-nigeria.svg.png" alt="Nigeria Flag">
+                <p>&copy; <span id="currentYear"></span> Otite Philemon Idogun - Nigeria</p>
+            </div>
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
+
+    <!-- Course Details Modal -->
+    <dialog id="courseDetails">
+        <div class="modal-header">
+            <h2 id="modalCourseCode"></h2>
+            <button class="close-modal" id="closeModal">&times;</button>
+        </div>
+        <div class="modal-content">
+            <h3 id="modalCourseTitle"></h3>
+            <div class="modal-meta">
+                <span class="status" id="modalCourseStatus"></span>
+                <span class="credits" id="modalCourseCredits"></span>
+            </div>
+            <p id="modalCourseDescription"></p>
+            <p><strong>Certificate:</strong> <span id="modalCourseCertificate"></span></p>
+            <div class="tech-list" id="modalTechList"></div>
+        </div>
+    </dialog>
+
+    <script>
+        // Course Data
+        const courses = [
+            {
+                subject: "CSE",
+                number: 110,
+                title: "Introduction to Programming",
+                credits: 2,
+                certificate: "Web and Computer Programming",
+                description: "This course introduces students to programming fundamentals including variables, decisions, calculations, loops, arrays, and input/output operations. Students will learn to solve problems using these building blocks of programming languages.",
+                technology: ["Python", "PyCharm", "Git"],
+                completed: true,
+            },
+            {
+                subject: "WDD",
+                number: 130,
+                title: "Web Fundamentals",
+                credits: 2,
+                certificate: "Web and Computer Programming",
+                description: "This course provides an introduction to the World Wide Web and careers in web design and development. Through hands-on projects, students gain experience with basic web design and programming concepts to understand the field.",
+                technology: ["HTML5", "CSS3", "VS Code"],
+                completed: true,
+            },
+            {
+                subject: "CSE",
+                number: 111,
+                title: "Programming with Functions",
+                credits: 2,
+                certificate: "Web and Computer Programming",
+                description: "Students learn to write more efficient programs by mastering functions - researching, calling, writing, debugging, and testing functions. The course covers error handling and applying functions to solve problems across various disciplines.",
+                technology: ["Python", "Functions", "Debugging"],
+                completed: true,
+            },
+            {
+                subject: "CSE",
+                number: 210,
+                title: "Programming with Classes",
+                credits: 2,
+                certificate: "Web and Computer Programming",
+                description: "This course introduces object-oriented programming concepts including classes, objects, encapsulation, inheritance, and polymorphism. Students apply these concepts to build more complex programs.",
+                technology: ["C#", "OOP", ".NET"],
+                completed: true,
+            },
+            {
+                subject: "WDD",
+                number: 131,
+                title: "Dynamic Web Fundamentals",
+                credits: 2,
+                certificate: "Web and Computer Programming",
+                description: "Building on web fundamentals, this course teaches students to create dynamic websites using JavaScript to respond to events, update content, and create responsive user experiences.",
+                technology: ["JavaScript", "DOM", "Events"],
+                completed: true,
+            },
+            {
+                subject: "WDD",
+                number: 231,
+                title: "Frontend Web Development I",
+                credits: 2,
+                certificate: "Web and Computer Programming",
+                description: "This advanced course focuses on user experience, accessibility, compliance, performance optimization, and basic API usage in frontend web development.",
+                technology: ["Advanced CSS", "Accessibility", "APIs"],
+                completed: false,
+            },
+        ];
+
+        // DOM Elements
+        const coursesGrid = document.getElementById('coursesGrid');
+        const allCoursesBtn = document.getElementById('all-courses');
+        const wddCoursesBtn = document.getElementById('wdd-courses');
+        const cseCoursesBtn = document.getElementById('cse-courses');
+        const totalCreditsSpan = document.getElementById('totalCredits');
+        const courseDetailsModal = document.getElementById('courseDetails');
+        const closeModalBtn = document.getElementById('closeModal');
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const navToggleBtn = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        // Modal elements
+        const modalCourseCode = document.getElementById('modalCourseCode');
+        const modalCourseTitle = document.getElementById('modalCourseTitle');
+        const modalCourseStatus = document.getElementById('modalCourseStatus');
+        const modalCourseCredits = document.getElementById('modalCourseCredits');
+        const modalCourseDescription = document.getElementById('modalCourseDescription');
+        const modalCourseCertificate = document.getElementById('modalCourseCertificate');
+        const modalTechList = document.getElementById('modalTechList');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year and last modified date
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            document.getElementById('lastModified').textContent = document.lastModified;
+            
+            // Load courses
+            renderCourses(courses);
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Check for saved theme preference
+            checkThemePreference();
+        });
+
+        // Render courses based on filter
+        function renderCourses(coursesToRender) {
+            coursesGrid.innerHTML = '';
+            
+            let totalCredits = 0;
+            
+            coursesToRender.forEach(course => {
+                // Create course card
+                const courseCard = document.createElement('div');
+                courseCard.className = `course-card ${course.completed ? 'completed' : 'uncompleted'}`;
+                
+                // Calculate total credits for completed courses
+                if (course.completed) {
+                    totalCredits += course.credits;
+                }
+                
+                // Card content
+                courseCard.innerHTML = `
+                    <div class="course-code">${course.subject} ${course.number}</div>
+                    <div class="course-title">${course.title}</div>
+                    <div class="course-meta">
+                        <span class="course-credits">${course.credits} CR</span>
+                        <span class="course-status ${course.completed ? 'completed' : 'uncompleted'}">
+                            ${course.completed ? 'Completed' : 'In Progress'}
+                        </span>
+                    </div>
+                `;
+                
+                // Add click event to show details
+                courseCard.addEventListener('click', () => showCourseDetails(course));
+                
+                coursesGrid.appendChild(courseCard);
+            });
+            
+            // Update total credits
+            totalCreditsSpan.textContent = totalCredits;
+        }
+
+        // Show course details in modal
+        function showCourseDetails(course) {
+            modalCourseCode.textContent = `${course.subject} ${course.number}`;
+            modalCourseTitle.textContent = course.title;
+            modalCourseStatus.textContent = course.completed ? 'Completed' : 'In Progress';
+            modalCourseStatus.className = `status ${course.completed ? '' : 'uncompleted'}`;
+            modalCourseCredits.textContent = `${course.credits} Credits`;
+            modalCourseDescription.textContent = course.description;
+            modalCourseCertificate.textContent = course.certificate;
+            
+            // Clear and populate tech list
+            modalTechList.innerHTML = '';
+            course.technology.forEach(tech => {
+                const techItem = document.createElement('span');
+                techItem.className = 'tech-item';
+                techItem.textContent = tech;
+                modalTechList.appendChild(techItem);
+            });
+            
+            // Show modal
+            courseDetailsModal.showModal();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Filter buttons
+            allCoursesBtn.addEventListener('click', () => {
+                setActiveFilter(allCoursesBtn);
+                renderCourses(courses);
+            });
+            
+            wddCoursesBtn.addEventListener('click', () => {
+                setActiveFilter(wddCoursesBtn);
+                const wddCourses = courses.filter(course => course.subject === 'WDD');
+                renderCourses(wddCourses);
+            });
+            
+            cseCoursesBtn.addEventListener('click', () => {
+                setActiveFilter(cseCoursesBtn);
+                const cseCourses = courses.filter(course => course.subject === 'CSE');
+                renderCourses(cseCourses);
+            });
+            
+            // Close modal
+            closeModalBtn.addEventListener('click', () => {
+                courseDetailsModal.close();
+            });
+            
+            // Theme toggle
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            
+            // Mobile nav toggle
+            navToggleBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                navToggleBtn.innerHTML = mainNav.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+        }
+
+        // Set active filter button
+        function setActiveFilter(activeBtn) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            activeBtn.classList.add('active');
+        }
+
+        // Theme management
+        function checkThemePreference() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

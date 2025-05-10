@@ -1,1 +1,92 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a home page to Otite Philemon Idogun's WDD 231 - Web Frontend Development 1 course projects.">
+    <meta name="author" content="Otite Philemon Idogun">
+    <title>WDD 231 - Course Hompage</title>
+    
+    <link rel="stylesheet" href="styles/normalization.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="stylesheet" href="styles/smaller.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/course-cards.js" defer></script>
+    <script src="scripts/dates.js" defer></script>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="images/profile.jpg" alt="Otite Philemon Idogun" width="100" />
+            <span>Otite Philemon Idogun</span>
+            <span class="two">Otite Idogun</span>
+            <button class="nav-toggleBtn"></button>
+        </div> 
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="chamber" target="_blank">Chamber</a>
+            <a href="https://github.com/" target="_blank">GitHub Profile</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="project-final" target="_blank">Project</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Home</h2>
+        <section id="one">
+            <div class="course">
+                <div class="title">
+                    <h2>Course Work</h2>
+                </div>
+                <div class="content">
+                    <article>
+                        <h1 class="course-title"></h1>
+                        
+                        <p class="description">
+                        </p>
+                        
+                        <ul class="technology">
+                        </ul>
+                    </article>
+                </div>
+            </div>
+            <div class="country">
+                <div class="title"><h2>Abuja, Nigeria</h2></div>
+                <div class="content">
+                    <img src="images/abuja-landscape.jpg" alt="The Nigerian Map and Flag" width="200" />
+                    <p>Abuja, city, capital of Nigeria. It lies in the central part of Nigeria, in the Federal Capital Territory (FCT; created 1976). The city is approximately 300 miles (480 km) northeast of Lagos, the former capital (until 1991). <br><br>- Britannica</p>
+                </div>
+            </div> 
+        </section>
+    
+        <section class="two certificate">
+            <div class="one">
+                <div class="title">
+                    <h2>Web and Computer Programming Certificate</h2>
+                </div>
+                <div class="cert-nav">  
+                    <button id="all-courses">All</button>
+                    <button id="wdd-courses">WDD</button>
+                    <button id="cse-courses">CSE</button>
+                </div>
+                <div class="cert-cards">
+                </div>
+                <div class="total-credits">Total Credits: 0</div>
+            </div>
+        </section>
+        
+        <!-- Course Details Modal -->
+        <dialog id="courseDetails">
+        </dialog>
+    </main>
+    <footer>
+        <div>
+            <p>&copy; <span id="currentyear"></span> - Otite Philemon Idogun - Nigeria</p> <img src="images/flag-of-nigeria.svg.png" alt="Flag of Nigeria" width="50">
+            <p>Last Modified: <span id="lastModified"></span></p> 
+        </div>
+    </footer>
+</body>
+</html>

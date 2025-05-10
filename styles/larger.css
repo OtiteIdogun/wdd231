@@ -1,1 +1,444 @@
+:root {
+    /* ——— Colour Schema */
+    --azureblue: rgba(9, 94, 165, 1);
+    --primary: #065674; 
+    --secondary-color: #0F4284; /* 1526A5 */
+    --tealblue: rgba(15, 66, 133, 1.0);
+    --accent1-color: #09A53C;
+    --accent2-color: #06742A;
+    --accent4-color: #124700;
+    --accent5-color: #337303;
+    --accent3-color: #64301D;
+    --accent6-color: #E74C3C;
+    --white: #FFF;
+    --black: #000;
+    --light: #f9f9f9;
+    --dark: #333;
+}
+
+* {
+    border: 0px solid black;
+}
+
+/* ——— Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 800;
+    color: var(--secondary-color);
+    place-self: center;
+}
+
+p, *, a {
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+body {
+    margin: auto;
+    background: #f0f0f0;
+}
+
+header,
+header h1,
+section h2,
+footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    place-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+header {
+    clear: both;
+}
+
+header div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header img {
+    border-radius: 12%;
+    margin: 1rem 3rem;
+    align-self: center;
+}
+
+header span {
+    font-family: "Poppins", Arial, sans-serif;
+    padding: 0;
+    margin: 0.5rem 0 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    place-self: center;
+    text-align: center;
+}
+
+header .two {
+    display: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--white);
+    box-shadow: 0 0 4px var(--black);
+    padding: 12px 10px;
+    place-content: space-evenly;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+    position: sticky;
+}
+
+nav.active {
+    max-height: 500px; 
+}
+
+nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 0;
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: bold;
+    max-width: 150px;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    background: rgba(231, 76, 60, 0.1);
+}
+
+nav a.active {
+    color: var(--accent6-color);
+    font-weight: bold;
+}
+
+/* Navigation Toggle Button */
+.nav-toggleBtn {
+    display: none;
+    background: var(--secondary-color);
+    width: 50px;
+    height: 50px;
+    border: none;
+    color: var(--white);
+    font-size: 1.9rem;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 12px; 
+    line-height: 1;
+    z-index: 1001;
+}
+
+.nav-toggleBtn::before {
+    content: "☰"; 
+    display: block; 
+}
+
+.nav-toggleBtn.open::before {
+    content: "✖";
+}
+
+main {
+    margin: 0rem auto 2rem;
+    width: 85%;
+}
+
+section {
+    margin: 0rem auto 2rem;
+}
+
+#one {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.course {
+    flex: 3 0 250px;
+}
+
+.country {
+    flex: 1 0 250px;
+}
+
+.course,
+.country,
+.certificate {
+    border: 1px solid #CCC;
+    border-radius: 1rem;
+    background: var(--white);
+}
+
+.course .content,
+.country .content,
+.certificate .content {
+    padding: 0.5rem 0.5rem;
+    margin: 0;
+}
+
+.course .content {
+    height: 30rem;
+    overflow: auto;
+}
+
+.course-item {
+    margin: 0rem 0;
+    padding: 1rem;
+    gap: 0px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    background: var(--white);
+    align-content: center;
+    cursor: pointer;
+}
+
+.course-item h3 {
+    color: var(--primary);
+    text-align: center;
+}
+
+.course-item p {
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.course-item a {
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent5-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.course-item a:hover {
+    background: var(--accent4-color);
+}
+
+.country .content {
+    margin: 1rem 1rem 0;
+    text-align: center;
+}
+
+.country p {
+    text-align: left;
+}
+
+.country img {
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.country h3 {
+    text-align: center;
+}
+
+section .title {
+    padding: 1px 2rem;
+    background: var(--secondary-color);
+    border-radius: 1rem 1rem 0 0rem;
+}
+
+.certificate .content div,
+.cert-nav {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.cert-nav button {
+    display: inline-block;
+    padding: 0.4rem 1.8rem;
+    margin: 1rem 0.5rem 0;
+    max-width: 6rem;
+    width: 100%;
+    border: 2px solid var(--black);
+    border-radius: 4px;
+    background: var(--black);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.cert-nav button:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+.total-credits {
+    justify-self: center;
+    padding: 0.4rem 2rem;
+    background: var(--white);
+    border: 2px solid var(--black);
+    margin: 0rem 0 1.5rem 0;
+}
+
+.cert-cards, course-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 2fr));
+    gap: 15px;
+    margin: 1rem 1rem;
+}
+
+.cert-cards div {
+    display: inline-block;
+    padding: 1.5rem 5rem;
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 20px;
+    text-align: center;
+    font-weight: 800;
+    justify-self: space-evenly;
+}
+
+.cert-cards div:hover {
+    transform: scale(1.0);
+    background: var(--black);
+}
+
+/* Add this to your CSS file */
+.completed {
+    background-color: var(--accent4-color); 
+    color: var(--white);
+    border: 2px solid var(--accent2-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.uncompleted {
+   background-color: var(--accent3-color); 
+}
+
+.course-item {
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0rem 0;
+    color: var(--dark);
+    gap: 10px;
+}
+
+/* Enhanced Modal styles */
+dialog {
+    width: 90%;
+    max-width: 600px;
+    place-self: center;
+    place-content: center;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    padding: 1.5rem 1.5rem ;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: white;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+}
+
+#closeModal {
+    position: absolute;
+    top: 22px;
+    right: 12px;
+    background: rgba(0,0,0,0.1);;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    padding: 0.4rem 0.52rem;
+    line-height: 1;
+}
+
+#closeModal:hover {
+    color: var(--accent6-color);
+    background: rgba(0,0,0,0.1);
+}
+
+#courseDetails h2 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    padding-right: 2rem; /* Space for close button */
+    word-break: break-word;
+}
+
+#courseDetails h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    word-break: break-word;
+}
+
+#courseDetails p {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+#courseDetails strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+.completed-badge {
+    background-color: var(--accent2-color);
+    color: white;
+}
+
+.uncompleted-badge {
+    background-color: var(--accent3-color);
+    color: white;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tech-tag {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    align-content: center;
+    border-radius: 8px;
+    height: 1.5rem;
+    font-size: 0.9rem;
+}
+
+footer {
+    place-content: center;
+}
+
+footer div p:first-child {
+    font-weight: bold;
+}
+
+footer img {
+    display: inline;
+    border-radius: 4px;
+}
 
