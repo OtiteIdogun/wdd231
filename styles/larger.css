@@ -17,7 +17,7 @@
 }
 
 * {
-    border: 0px solid black;
+    border: 0px dotted black;
 }
 
 /* ——— Typography */
@@ -148,13 +148,14 @@ main {
 }
 
 section {
-    margin: 0rem auto 2rem;
+    margin: 0rem auto 0rem;
 }
 
 #one {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    margin: 0rem auto 2rem;
 }
 
 .course {
