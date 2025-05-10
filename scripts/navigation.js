@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.querySelector('.nav-toggle-btn');
     const navMenu = document.querySelector('nav');
     
+    toggleBtn.textContent = "";
+    
     // Toggle mobile menu
     toggleBtn.addEventListener('click', function() {
         navMenu.classList.toggle('active');
